@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router";
-import Notes from './Notes';
-import NotePage from './NotePage';
-import EditNote from './EditNote';
+import NotesPage from './pages/NotesPage';
+import NoteViewPage from './pages/NoteViewPage';
+import NoteEditPage from './pages/NoteEditPage';
 
 interface Note {
   id: string;
@@ -25,11 +25,11 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Notes />} />
+        <Route path="/" element={<NotesPage />} />
         <Route 
           path="/notes/:noteId" 
           element={
-            <NotePage 
+            <NoteViewPage 
               title={mockNote.title}
               content={mockNote.content}
               date={mockNote.createdAt}
@@ -39,7 +39,7 @@ const App = () => {
         <Route 
           path="/notes/:noteId/edit" 
           element={
-            <EditNote 
+            <NoteEditPage 
               title={mockNote.title}
               content={mockNote.content}
               onSave={handleSave}

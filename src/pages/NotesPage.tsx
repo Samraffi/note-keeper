@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import SearchBar from './SearchBar';
-import NoteList from './NoteList';
+import NoteList from '../components/NoteList';
+import SearchBar from '../components/SearchBar';
 
 interface Note {
   id: string;
@@ -10,7 +10,7 @@ interface Note {
   createdAt: string;
 }
 
-const Notes = () => {
+const NotesPage = () => {
   const navigate = useNavigate();
 
   // Временные данные для демонстрации
@@ -74,4 +74,4 @@ const Notes = () => {
   );
 };
 
-export default Notes;
+export default NotesPage;

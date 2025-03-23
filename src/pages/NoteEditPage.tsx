@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 
-interface EditNoteProps {
+interface NoteEditPageProps {
   title: string;
   content: string;
   onSave: (title: string, content: string) => void;
 }
 
-const EditNote = ({ title, content, onSave }: EditNoteProps) => {
+const NoteEditPage = ({ title, content, onSave }: NoteEditPageProps) => {
   const navigate = useNavigate();
   const { noteId } = useParams<{ noteId: string }>();
   const [editedTitle, setEditedTitle] = useState(title);
@@ -78,4 +78,4 @@ const EditNote = ({ title, content, onSave }: EditNoteProps) => {
   );
 };
 
-export default EditNote;
+export default NoteEditPage;

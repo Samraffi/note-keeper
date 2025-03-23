@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
-import DeleteNote from './DeleteNote';
+import DeleteNote from '../components/DeleteNote';
 
-interface NotePageProps {
+interface NoteViewPageProps {
   title: string;
   content: string;
   date: string;
 }
 
-const NotePage = ({ title, content, date }: NotePageProps) => {
+const NoteViewPage = ({ title, content, date }: NoteViewPageProps) => {
   const navigate = useNavigate();
   const { noteId } = useParams<{ noteId: string }>();
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -74,4 +74,4 @@ const NotePage = ({ title, content, date }: NotePageProps) => {
   );
 };
 
-export default NotePage;
+export default NoteViewPage;
