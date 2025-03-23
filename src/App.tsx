@@ -8,6 +8,7 @@ const App = () => {
   const handleSave = (title: string, content: string) => {
     console.log('Сохранение', { title, content });
   };
+  const { title, content, createdAt } = mockNote; 
 
   return (
     <BrowserRouter basename="/">
@@ -17,9 +18,9 @@ const App = () => {
           path="notes/:noteId" 
           element={
             <NoteViewPage 
-              title={mockNote.title}
-              content={mockNote.content}
-              date={mockNote.createdAt}
+              title={title}
+              content={content}
+              date={createdAt}
             />
           }
         />
@@ -27,8 +28,8 @@ const App = () => {
           path="notes/:noteId/edit" 
           element={
             <NoteEditPage 
-              title={mockNote.title}
-              content={mockNote.content}
+              title={title}
+              content={content}
               onSave={handleSave}
             />
           }

@@ -4,13 +4,13 @@ import { NoteListProps } from '../../types/props';
 const NoteList = ({ notes, onNoteSelect }: NoteListProps) => {
   return (
     <div className="border-r h-[calc(100vh-64px)] overflow-y-auto">
-      {notes.map((note) => (
+      {notes.map(({ id, title, content, createdAt }) => (
         <NoteItem
-          key={note.id}
-          title={note.title}
-          content={note.content}
-          date={note.createdAt}
-          onClick={() => onNoteSelect(note.id)}
+          key={id}
+          title={title}
+          content={content}
+          date={createdAt}
+          onClick={() => onNoteSelect(id)}
         />
       ))}
     </div>

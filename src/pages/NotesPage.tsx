@@ -12,9 +12,9 @@ const NotesPage = () => {
     navigate(`notes/${id}`);
   };
 
-  const filteredNotes = mockNotes.filter(note => 
-    note.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    note.content.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredNotes = mockNotes.filter(({ title, content }) => 
+    title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    content.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
