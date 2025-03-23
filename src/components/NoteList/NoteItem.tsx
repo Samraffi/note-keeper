@@ -7,9 +7,7 @@ const NoteItem = ({ title, content, date, onClick }: NoteItemProps) => {
       onClick={onClick}
     >
       <h3 className="font-medium text-lg mb-1">{title}</h3>
-      <p className="text-gray-600 text-sm mb-2 line-clamp-2">
-        {content}
-      </p>
+      <p className="text-gray-600 text-sm mb-2 line-clamp-2">{content}</p>
       <span className="text-xs text-gray-500">{date}</span>
     </div>
   );

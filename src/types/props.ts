@@ -16,12 +16,13 @@ export interface NoteViewPageProps {
   title: string;
   content: string;
   date: string;
+  onDelete: (id: string) => void;
 }
 
 export interface NoteEditPageProps {
   title: string;
   content: string;
-  onSave: (title: string, content: string) => void;
+  onSave: (oldTitle: string, newTitle: string, newContent: string) => void;
 }
 
 export interface DeleteNoteProps {

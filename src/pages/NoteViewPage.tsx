@@ -3,17 +3,23 @@ import { useNavigate, useParams } from 'react-router';
 import DeleteNote from '../components/DeleteNote';
 import { NoteViewPageProps } from '../types/props';
 
-const NoteViewPage = ({ title, content, date }: NoteViewPageProps) => {
+const NoteViewPage = ({ title, content, date, onDelete }: NoteViewPageProps) => {
   const navigate = useNavigate();
   const { noteId } = useParams<{ noteId: string }>();
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+
+  const handleConfirmDelete = () => {
+    if (noteId) {
+      onDelete(noteId);
+    }
+  };
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-8">
       {/* Header with actions */}
       <div className="flex items-center justify-between mb-8">
         <button
-          onClick={() => navigate(-1)}
+          onClick={() => navigate('/notes')}
           className="text-gray-600 hover:text-gray-800 flex items-center gap-2"
         >
           <svg 
@@ -59,10 +65,7 @@ const NoteViewPage = ({ title, content, date }: NoteViewPageProps) => {
       {/* Delete confirmation modal */}
       <DeleteNote
         isOpen={showDeleteModal}
-        onConfirm={() => {
-          setShowDeleteModal(false);
-          navigate('/../../');
-        }}
+        onConfirm={handleConfirmDelete}
         onCancel={() => setShowDeleteModal(false)}
       />
     </div>

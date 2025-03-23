@@ -9,8 +9,9 @@ const NoteEditPage = ({ title, content, onSave }: NoteEditPageProps) => {
   const [editedContent, setEditedContent] = useState(content);
 
   const handleSave = () => {
-    onSave(editedTitle, editedContent);
-    navigate(`..`);
+    if (!noteId) return;
+    onSave(title, editedTitle, editedContent);
+    navigate(`/notes/${noteId}`);
   };
 
   return (
@@ -18,7 +19,7 @@ const NoteEditPage = ({ title, content, onSave }: NoteEditPageProps) => {
       {/* Header with actions */}
       <div className="flex items-center justify-between mb-8">
         <button
-          onClick={() => navigate(`..`)}
+          onClick={() => navigate(`/notes/${noteId}`)}
           className="text-gray-600 hover:text-gray-800 flex items-center gap-2"
         >
           <svg 
@@ -44,7 +45,7 @@ const NoteEditPage = ({ title, content, onSave }: NoteEditPageProps) => {
             Сохранить
           </button>
           <button
-            onClick={() => navigate(`..`)}
+            onClick={() => navigate(`/notes/${noteId}`)}
             className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
           >
             Отмена

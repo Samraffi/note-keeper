@@ -1,18 +1,34 @@
-import { useState } from 'react';
+import { useState, Dispatch, SetStateAction } from 'react';
 import { useNavigate } from 'react-router';
 import NoteList from '../components/NoteList';
 import SearchBar from '../components/SearchBar';
-import { mockNotes } from '../constants/mockData';
+import { Note } from '../types/note';
 
-const NotesPage = () => {
+interface NotesPageProps {
+  notes: Note[];
+  setNotes: Dispatch<SetStateAction<Note[]>>;
+}
+
+const NotesPage = ({ notes, setNotes }: NotesPageProps) => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleNoteSelect = (id: string) => {
-    navigate(`notes/${id}`);
+    navigate(`${id}`);
   };
 
-  const filteredNotes = mockNotes.filter(({ title, content }) => 
+  const handleAddNote = () => {
+    const newNote = {
+      id: Date.now().toString(),
+      title: 'Новая заметка',
+      content: '',
+      createdAt: new Date().toISOString()
+    };
+    setNotes([newNote, ...notes]);
+    navigate(`${newNote.id}`);
+  };
+
+  const filteredNotes = notes.filter(({ title, content }) => 
     title.toLowerCase().includes(searchQuery.toLowerCase()) ||
     content.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -23,7 +39,7 @@ const NotesPage = () => {
       <div className="w-64 border-r bg-gray-50">
         <div className="p-4">
           <button 
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/notes')}
             className="w-full px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
           >
             Все заметки
@@ -37,7 +53,7 @@ const NotesPage = () => {
           <SearchBar 
             value={searchQuery}
             onChange={setSearchQuery}
-            onCreateNote={() => navigate('notes/new')}
+            onCreateNote={handleAddNote}
           />
           <div className="mt-6">
             <NoteList 
