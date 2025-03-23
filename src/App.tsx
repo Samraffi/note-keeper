@@ -2,20 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import NotesPage from './pages/NotesPage';
 import NoteViewPage from './pages/NoteViewPage';
 import NoteEditPage from './pages/NoteEditPage';
-
-interface Note {
-  id: string;
-  title: string;
-  content: string;
-  createdAt: string;
-}
-
-const mockNote: Note = {
-  id: '1',
-  title: 'Тестовая заметка',
-  content: 'Содержание тестовой заметки...',
-  createdAt: '21 марта, 2025'
-};
+import { mockNote } from './constants/mockData';
 
 const App = () => {
   const handleSave = (title: string, content: string) => {

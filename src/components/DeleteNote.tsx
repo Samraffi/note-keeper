@@ -1,8 +1,4 @@
-interface DeleteNoteProps {
-  isOpen: boolean;
-  onConfirm: () => void;
-  onCancel: () => void;
-}
+import { DeleteNoteProps } from '../types/props';
 
 const DeleteNote = ({ isOpen, onConfirm, onCancel }: DeleteNoteProps) => {
   if (!isOpen) return null;

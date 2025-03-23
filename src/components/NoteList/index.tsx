@@ -1,16 +1,5 @@
 import NoteItem from './NoteItem';
-
-interface Note {
-  id: string;
-  title: string;
-  content: string;
-  createdAt: string;
-}
-
-interface NoteListProps {
-  notes: Note[];
-  onNoteSelect: (id: string) => void;
-}
+import { NoteListProps } from '../../types/props';
 
 const NoteList = ({ notes, onNoteSelect }: NoteListProps) => {
   return (

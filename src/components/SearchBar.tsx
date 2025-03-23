@@ -1,8 +1,4 @@
-interface SearchBarProps {
-  value: string;
-  onChange: (value: string) => void;
-  onCreateNote: () => void;
-}
+import { SearchBarProps } from '../types/props';
 
 const SearchBar = ({ value, onChange, onCreateNote }: SearchBarProps) => {
   return (

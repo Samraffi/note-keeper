@@ -1,12 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import DeleteNote from '../components/DeleteNote';
-
-interface NoteViewPageProps {
-  title: string;
-  content: string;
-  date: string;
-}
+import { NoteViewPageProps } from '../types/props';
 
 const NoteViewPage = ({ title, content, date }: NoteViewPageProps) => {
   const navigate = useNavigate();
@@ -38,7 +33,7 @@ const NoteViewPage = ({ title, content, date }: NoteViewPageProps) => {
         </button>
         <div className="flex gap-3">
           <button
-          onClick={() => navigate(`edit`)}
+            onClick={() => navigate(`edit`)}
             className="px-4 py-2 text-blue-500 border border-blue-500 rounded-lg hover:bg-blue-50 transition-colors"
           >
             Редактировать

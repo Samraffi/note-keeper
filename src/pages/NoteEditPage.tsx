@@ -1,11 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
-
-interface NoteEditPageProps {
-  title: string;
-  content: string;
-  onSave: (title: string, content: string) => void;
-}
+import { NoteEditPageProps } from '../types/props';
 
 const NoteEditPage = ({ title, content, onSave }: NoteEditPageProps) => {
   const navigate = useNavigate();

@@ -2,33 +2,10 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import NoteList from '../components/NoteList';
 import SearchBar from '../components/SearchBar';
-
-interface Note {
-  id: string;
-  title: string;
-  content: string;
-  createdAt: string;
-}
+import { mockNotes } from '../constants/mockData';
 
 const NotesPage = () => {
   const navigate = useNavigate();
-
-  // Временные данные для демонстрации
-  const mockNotes: Note[] = [
-    {
-      id: '1',
-      title: 'Первая заметка',
-      content: 'Содержание первой заметки...',
-      createdAt: '21 марта, 2025'
-    },
-    {
-      id: '2',
-      title: 'Вторая заметка',
-      content: 'Содержание второй заметки...',
-      createdAt: '21 марта, 2025'
-    }
-  ];
-
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleNoteSelect = (id: string) => {
@@ -60,7 +37,7 @@ const NotesPage = () => {
           <SearchBar 
             value={searchQuery}
             onChange={setSearchQuery}
-    onCreateNote={() => navigate('notes/new')}
+            onCreateNote={() => navigate('notes/new')}
           />
           <div className="mt-6">
             <NoteList 

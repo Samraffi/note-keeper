@@ -1,9 +1,4 @@
-interface NoteItemProps {
-  title: string;
-  content: string;
-  date: string;
-  onClick: () => void;
-}
+import { NoteItemProps } from '../../types/props';
 
 const NoteItem = ({ title, content, date, onClick }: NoteItemProps) => {
   return (
