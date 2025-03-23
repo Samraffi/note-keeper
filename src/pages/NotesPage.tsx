@@ -32,7 +32,7 @@ const NotesPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleNoteSelect = (id: string) => {
-    navigate(`/notes/${id}`);
+    navigate(`notes/${id}`);
   };
 
   const filteredNotes = mockNotes.filter(note => 
@@ -60,7 +60,7 @@ const NotesPage = () => {
           <SearchBar 
             value={searchQuery}
             onChange={setSearchQuery}
-            onCreateNote={() => navigate('/notes/new')}
+    onCreateNote={() => navigate('notes/new')}
           />
           <div className="mt-6">
             <NoteList 

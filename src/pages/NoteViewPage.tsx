@@ -18,7 +18,7 @@ const NoteViewPage = ({ title, content, date }: NoteViewPageProps) => {
       {/* Header with actions */}
       <div className="flex items-center justify-between mb-8">
         <button
-          onClick={() => navigate('/')}
+          onClick={() => navigate(-1)}
           className="text-gray-600 hover:text-gray-800 flex items-center gap-2"
         >
           <svg 
@@ -38,7 +38,7 @@ const NoteViewPage = ({ title, content, date }: NoteViewPageProps) => {
         </button>
         <div className="flex gap-3">
           <button
-            onClick={() => navigate(`/notes/${noteId}/edit`)}
+          onClick={() => navigate(`edit`)}
             className="px-4 py-2 text-blue-500 border border-blue-500 rounded-lg hover:bg-blue-50 transition-colors"
           >
             Редактировать
@@ -66,7 +66,7 @@ const NoteViewPage = ({ title, content, date }: NoteViewPageProps) => {
         isOpen={showDeleteModal}
         onConfirm={() => {
           setShowDeleteModal(false);
-          navigate('/');
+          navigate('/../../');
         }}
         onCancel={() => setShowDeleteModal(false)}
       />

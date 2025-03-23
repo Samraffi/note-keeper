@@ -23,11 +23,11 @@ const App = () => {
   };
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/">
       <Routes>
         <Route path="/" element={<NotesPage />} />
         <Route 
-          path="/notes/:noteId" 
+          path="notes/:noteId" 
           element={
             <NoteViewPage 
               title={mockNote.title}
@@ -37,7 +37,7 @@ const App = () => {
           }
         />
         <Route 
-          path="/notes/:noteId/edit" 
+          path="notes/:noteId/edit" 
           element={
             <NoteEditPage 
               title={mockNote.title}
